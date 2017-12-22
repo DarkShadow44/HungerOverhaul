@@ -448,13 +448,19 @@ public class IguanaEventHook
         boolean fullyGrown = (!isNaturaCrop && event.blockMetadata >= 7) || (isNaturaCrop && event.blockMetadata == 3 || event.blockMetadata == 8);
 
         if (!fullyGrown)
-            return;
-
-        List<ItemStack> modifiedDrops = BlockHelper.modifyCropDrops(event.drops, event.block, event.blockMetadata, IguanaConfig.seedsPerHarvestBreakMin, IguanaConfig.seedsPerHarvestBreakMax, IguanaConfig.producePerHarvestBreakMin, IguanaConfig.producePerHarvestBreakMax);
-        event.drops.clear();
-        for (ItemStack drop : modifiedDrops)
         {
-            event.drops.add(drop);
+            event.drops.clear();
+            ItemStack seedItem = BlockHelper.getSeedsOfBlock(event.block, event.blockMetadata, 1);
+            event.drops.add(seedItem);
+        }
+        else
+        {
+            List<ItemStack> modifiedDrops = BlockHelper.modifyCropDrops(event.drops, event.block, event.blockMetadata, IguanaConfig.seedsPerHarvestBreakMin, IguanaConfig.seedsPerHarvestBreakMax, IguanaConfig.producePerHarvestBreakMin, IguanaConfig.producePerHarvestBreakMax);
+            event.drops.clear();
+            for (ItemStack drop : modifiedDrops)
+            {
+                event.drops.add(drop);
+            }
         }
     }
 
