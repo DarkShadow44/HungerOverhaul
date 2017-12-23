@@ -25,3 +25,13 @@
 # Pam's Sources
 /src/api/java/com/pam
 src/api/resources
+
+config/
+saves/
+logs/
+asm/
+.metadata
+.directory
+*.json
+options.txt
+1213309934

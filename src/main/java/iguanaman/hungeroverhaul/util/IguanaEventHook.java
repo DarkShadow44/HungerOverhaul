@@ -361,7 +361,6 @@ public class IguanaEventHook
             }
             else
                 event.useItem = Result.DENY;
-            return;
         }
 
         // right-click to harvest
