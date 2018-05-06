@@ -89,6 +89,7 @@ dependencies {
     compile "tconstruct:TConstruct:${config.minecraft_version}-${config.tcon_version}:deobf"
     compile "com.github.glitchfiend.biomesoplenty:BiomesOPlenty:${config.minecraft_version}-${config.bop_version}:deobf"
     compile "applecore:AppleCore:${config.minecraft_version}-${config.applecore_version}:deobf"
+    compile files('Pams Harvest the Nether 1.7.10a.jar')
 }
 
 // the single quotes in these filenames seems to cause problems with

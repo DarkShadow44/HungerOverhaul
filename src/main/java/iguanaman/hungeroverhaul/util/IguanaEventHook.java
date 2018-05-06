@@ -363,6 +363,14 @@ public class IguanaEventHook
                 event.useItem = Result.DENY;
         }
 
+        if (IguanaConfig.foodsUnplantable && Loader.isModLoaded("harvestthenether") && event.entityPlayer.getHeldItem() != null && event.entityPlayer.getHeldItem().getItem() instanceof com.pam.harvestthenether.ItemPamSeedFood)
+        {
+            if (event.world.isRemote)
+                event.setCanceled(true);
+            else
+                event.useItem = Result.DENY;
+        }
+
         // right-click to harvest
         if (!IguanaConfig.enableRightClickHarvesting)
             return;
